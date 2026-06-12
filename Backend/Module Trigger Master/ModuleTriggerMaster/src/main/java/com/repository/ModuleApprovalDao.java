@@ -1,0 +1,98 @@
+package com.repository;
+
+import java.util.List;
+import java.util.Properties;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
+
+import com.config.ModuleApprovalRowMapper;
+import com.model.ModuleApproval;
+
+@Repository
+public class ModuleApprovalDao {
+
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
+
+    @Autowired
+    private ModuleApprovalRowMapper rowMapper;
+
+    @Autowired
+    private Properties props;
+
+    public int createRequest(ModuleApproval request) {
+
+        String sql = props.getProperty("insertApprovalRequest");
+
+        return jdbcTemplate.update(
+                sql,
+                request.getModuleId(),
+                request.getNormalUserId(),
+                request.getRemarks(),
+                request.getNewStartTime(),
+                request.getNewEndTime(),
+                request.getNewServiceStatus());
+    }
+
+    public List<ModuleApproval> getPendingRequests() {
+
+        String sql = props.getProperty("getPendingRequests");
+
+        return jdbcTemplate.query(sql, rowMapper);
+    }
+
+    public ModuleApproval getById(int approvalId) {
+
+        String sql = props.getProperty("getApprovalById");
+
+        List<ModuleApproval> list =
+                jdbcTemplate.query(sql, rowMapper, approvalId);
+
+        return list.isEmpty() ? null : list.get(0);
+    }
+
+    // ===========================
+    // APPROVE (UPDATED)
+    // ===========================
+    public int approveRequest(
+            int approvalId,
+            int checkerId,
+            String checkerRemark) {
+
+        String sql = props.getProperty("approveRequest");
+
+        return jdbcTemplate.update(
+                sql,
+                checkerId,
+                checkerRemark,
+                approvalId
+        );
+    }
+
+    // ===========================
+    // REJECT (UPDATED)
+    // ===========================
+    public int rejectRequest(
+            int approvalId,
+            int checkerId,
+            String checkerRemark) {
+
+        String sql = props.getProperty("rejectRequest");
+
+        return jdbcTemplate.update(
+                sql,
+                checkerId,
+                checkerRemark,
+                approvalId
+        );
+    }
+
+    public List<ModuleApproval> getMakerRequests(int userId) {
+
+        String sql = props.getProperty("getMakerRequests");
+
+        return jdbcTemplate.query(sql, rowMapper, userId);
+    }
+}

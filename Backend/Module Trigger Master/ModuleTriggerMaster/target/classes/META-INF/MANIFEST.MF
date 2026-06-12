@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Built-By: pradi
+Build-Jdk: 17.0.9
+Implementation-Title: ModuleTriggerMaster
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: ModuleTriggerMaster
+Implementation-URL: http://www.example.com
+Created-By: Maven Integration for Eclipse
+

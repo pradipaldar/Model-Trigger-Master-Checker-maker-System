@@ -1,0 +1,135 @@
+package com.model;
+
+import java.sql.Timestamp;
+import java.time.LocalTime;
+
+public class ModuleApproval {
+
+    private int approvalId;
+
+    private int moduleId;
+
+    private int normalUserId;
+
+    private Integer higherAuthorityId;
+
+    // Maker remark
+    private String remarks;
+
+    // Checker remark (NEW - FINAL FIX)
+    private String checkerRemark;
+
+    private String approvalStatus;
+
+    private Timestamp requestDate;
+
+    private Timestamp approvalDate;
+
+    private LocalTime newStartTime;
+
+    private LocalTime newEndTime;
+
+    private String newServiceStatus;
+
+    // =========================
+    // GETTERS & SETTERS
+    // =========================
+
+    public int getApprovalId() {
+        return approvalId;
+    }
+
+    public void setApprovalId(int approvalId) {
+        this.approvalId = approvalId;
+    }
+
+    public int getModuleId() {
+        return moduleId;
+    }
+
+    public void setModuleId(int moduleId) {
+        this.moduleId = moduleId;
+    }
+
+    public int getNormalUserId() {
+        return normalUserId;
+    }
+
+    public void setNormalUserId(int normalUserId) {
+        this.normalUserId = normalUserId;
+    }
+
+    public Integer getHigherAuthorityId() {
+        return higherAuthorityId;
+    }
+
+    public void setHigherAuthorityId(Integer higherAuthorityId) {
+        this.higherAuthorityId = higherAuthorityId;
+    }
+
+    // Maker remark
+    public String getRemarks() {
+        return remarks;
+    }
+
+    public void setRemarks(String remarks) {
+        this.remarks = remarks;
+    }
+
+    // Checker remark
+    public String getCheckerRemark() {
+        return checkerRemark;
+    }
+
+    public void setCheckerRemark(String checkerRemark) {
+        this.checkerRemark = checkerRemark;
+    }
+
+    public String getApprovalStatus() {
+        return approvalStatus;
+    }
+
+    public void setApprovalStatus(String approvalStatus) {
+        this.approvalStatus = approvalStatus;
+    }
+
+    public Timestamp getRequestDate() {
+        return requestDate;
+    }
+
+    public void setRequestDate(Timestamp requestDate) {
+        this.requestDate = requestDate;
+    }
+
+    public Timestamp getApprovalDate() {
+        return approvalDate;
+    }
+
+    public void setApprovalDate(Timestamp approvalDate) {
+        this.approvalDate = approvalDate;
+    }
+
+    public LocalTime getNewStartTime() {
+        return newStartTime;
+    }
+
+    public void setNewStartTime(LocalTime newStartTime) {
+        this.newStartTime = newStartTime;
+    }
+
+    public LocalTime getNewEndTime() {
+        return newEndTime;
+    }
+
+    public void setNewEndTime(LocalTime newEndTime) {
+        this.newEndTime = newEndTime;
+    }
+
+    public String getNewServiceStatus() {
+        return newServiceStatus;
+    }
+
+    public void setNewServiceStatus(String newServiceStatus) {
+        this.newServiceStatus = newServiceStatus;
+    }
+}
